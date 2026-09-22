@@ -125,7 +125,6 @@ export function InquiryForm() {
         required
         autoComplete="name"
         maxLength={INQUIRY_MAX_LENGTH.name}
-        placeholder="홍길동"
         value={values.name}
         onChange={update('name')}
         error={errors.name}
@@ -137,7 +136,6 @@ export function InquiryForm() {
         label="기관·회사명"
         autoComplete="organization"
         maxLength={INQUIRY_MAX_LENGTH.organization}
-        placeholder="한국엑스퍼트"
         value={values.organization}
         onChange={update('organization')}
         error={errors.organization}
@@ -152,8 +150,7 @@ export function InquiryForm() {
         inputMode="tel"
         autoComplete="tel"
         maxLength={INQUIRY_MAX_LENGTH.phone}
-        placeholder="010-1234-5678"
-        hint="숫자와 하이픈(-)만 입력해 주세요."
+        hint="숫자와 하이픈(-)만 입력해 주세요. (예: 010-1234-5678)"
         value={values.phone}
         onChange={update('phone')}
         error={errors.phone}
@@ -166,8 +163,7 @@ export function InquiryForm() {
         type="email"
         autoComplete="email"
         maxLength={INQUIRY_MAX_LENGTH.email}
-        placeholder="name@example.com"
-        hint="남겨 주시면 메일로도 답변드립니다."
+        hint="남겨 주시면 메일로도 답변드립니다. (예: name@example.com)"
         value={values.email}
         onChange={update('email')}
         error={errors.email}
@@ -193,7 +189,7 @@ export function InquiryForm() {
           required
           rows={6}
           maxLength={INQUIRY_MAX_LENGTH.message}
-          placeholder="교육 대상과 인원, 희망 일정, 예산 등을 알려 주시면 더 정확하게 안내드릴 수 있습니다."
+          hint="교육 대상과 인원, 희망 일정, 예산 등을 알려 주시면 더 정확하게 안내드릴 수 있습니다."
           value={values.message}
           onChange={update('message')}
           error={errors.message}

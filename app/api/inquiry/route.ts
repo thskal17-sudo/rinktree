@@ -22,7 +22,7 @@ import {
  *  - DB 미설정(1단계 운영): 메일 발송 성공 여부로 판단
  */
 
-const SUCCESS_MESSAGE = '문의가 접수되었습니다. 영업일 기준 1~2일 안에 연락드리겠습니다.'
+const SUCCESS_MESSAGE = '영업일 기준 1~2일 안에 담당자가 연락드리겠습니다.'
 const RETRY_MESSAGE = `문의 접수 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 ${site.contact.email}으로 보내 주세요.`
 
 function json(body: InquiryApiResponse, status: number) {

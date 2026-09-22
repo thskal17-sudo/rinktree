@@ -16,6 +16,7 @@
   --surface: #ffffff; /* 카드 */
   --accent: #1f7a5c; /* 포인트 */
   --accent-soft: #e4efe9; /* 연한 배경 */
+  --accent-ink: #1d7457; /* accent-soft 배경 위 텍스트용 (대비 4.8:1) */
 
   /* 위 토큰에서 파생된 보조 값 */
   --line: rgb(23 36 64 / 0.12); /* 카드/입력 테두리 */
@@ -35,6 +36,7 @@
     --surface: #16203a;
     --accent: #4fbe95;
     --accent-soft: #1c3129;
+    --accent-ink: #4fbe95;
 
     --line: rgb(237 239 245 / 0.14);
     --line-strong: rgb(237 239 245 / 0.28);
@@ -53,6 +55,7 @@
   --surface: #16203a;
   --accent: #4fbe95;
   --accent-soft: #1c3129;
+  --accent-ink: #4fbe95;
 
   --line: rgb(237 239 245 / 0.14);
   --line-strong: rgb(237 239 245 / 0.28);
@@ -70,6 +73,7 @@
   --color-surface: var(--surface);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
 

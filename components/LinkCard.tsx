@@ -24,7 +24,7 @@ export function LinkCard({ href, title, description, icon, featured = false }: L
       <span
         className={[
           'flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors',
-          featured ? 'bg-surface text-accent' : 'bg-accent-soft text-accent',
+          featured ? 'bg-surface text-accent' : 'bg-accent-soft text-accent-ink',
         ].join(' ')}
       >
         <Icon name={icon} className="h-5 w-5" />

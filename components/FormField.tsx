@@ -23,7 +23,7 @@ type SelectFieldProps = FieldBase & {
 export type FormFieldProps = InputFieldProps | TextareaFieldProps | SelectFieldProps
 
 const controlClass =
-  'w-full rounded-xl border bg-surface px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-soft/55 transition-colors focus:border-accent focus-visible:outline-none'
+  'w-full rounded-xl border bg-surface px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-soft transition-colors focus:border-accent'
 
 /**
  * 라벨 · 입력 · 안내/오류 메시지를 한 덩어리로 묶은 폼 필드.

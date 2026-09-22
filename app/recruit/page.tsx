@@ -51,7 +51,7 @@ export default function RecruitPage() {
         <ol className="mt-4 flex flex-col gap-3">
           {recruit.apply.steps.map((step, index) => (
             <li key={step} className="flex items-start gap-3">
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-soft font-serif text-xs font-bold text-accent">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-soft font-serif text-xs font-bold text-accent-ink">
                 {index + 1}
               </span>
               <span className="text-[15px] leading-relaxed text-ink-soft">{step}</span>
@@ -61,7 +61,7 @@ export default function RecruitPage() {
 
         <a
           href={`mailto:${site.contact.email}?subject=${mailSubject}`}
-          className="lift-on-hover mt-5 flex items-center justify-center gap-2 rounded-card border border-accent/45 bg-accent-soft px-4 py-3.5 font-medium text-accent shadow-card hover:shadow-card-hover"
+          className="lift-on-hover mt-5 flex items-center justify-center gap-2 rounded-card border border-accent/45 bg-accent-soft px-4 py-3.5 font-medium text-accent-ink shadow-card hover:shadow-card-hover"
         >
           <Icon name="mail" className="h-4.5 w-4.5" />
           {site.contact.email}으로 지원서 보내기

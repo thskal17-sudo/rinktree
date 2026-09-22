@@ -57,7 +57,7 @@ export default function AboutPage() {
             >
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                 <span className="font-semibold text-ink">{instructor.name}</span>
-                <span className="rounded-full bg-accent-soft px-2 py-0.5 text-xs text-accent">
+                <span className="rounded-full bg-accent-soft px-2 py-0.5 text-xs text-accent-ink">
                   {instructor.field}
                 </span>
               </div>
