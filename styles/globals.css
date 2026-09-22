@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+
+/* Tailwind v4는 CSS 파일 위치를 기준으로 소스를 탐색하므로 스캔 대상을 명시한다. */
+@source '../app';
+@source '../components';
+@source '../content';
+
+/* ──────────────────────────────────────────────────────────────
+   디자인 토큰 (아티팩트 프로토타입에서 확정된 값)
+   라이트 기본 → 다크는 prefers-color-scheme 자동 + data-theme 수동 전환
+   ────────────────────────────────────────────────────────────── */
+:root {
+  --ink: #172440; /* 본문/강조 */
+  --ink-soft: #4b5875; /* 보조 텍스트 */
+  --paper: #f1eee6; /* 배경 */
+  --surface: #ffffff; /* 카드 */
+  --accent: #1f7a5c; /* 포인트 */
+  --accent-soft: #e4efe9; /* 연한 배경 */
+
+  /* 위 토큰에서 파생된 보조 값 */
+  --line: rgb(23 36 64 / 0.12); /* 카드/입력 테두리 */
+  --line-strong: rgb(23 36 64 / 0.22);
+  --card-shadow: 0 1px 2px rgb(23 36 64 / 0.04);
+  --card-shadow-hover: 0 14px 28px -18px rgb(23 36 64 / 0.45);
+
+  color-scheme: light;
+}
+
+/* 시스템이 다크이고 사용자가 라이트를 고정하지 않은 경우 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ink: #edeff5;
+    --ink-soft: #a9b3cb;
+    --paper: #0e1626;
+    --surface: #16203a;
+    --accent: #4fbe95;
+    --accent-soft: #1c3129;
+
+    --line: rgb(237 239 245 / 0.14);
+    --line-strong: rgb(237 239 245 / 0.28);
+    --card-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+    --card-shadow-hover: 0 14px 28px -18px rgb(0 0 0 / 0.75);
+
+    color-scheme: dark;
+  }
+}
+
+/* 사용자가 직접 다크를 고른 경우 (next-themes가 data-theme을 세팅) */
+:root[data-theme='dark'] {
+  --ink: #edeff5;
+  --ink-soft: #a9b3cb;
+  --paper: #0e1626;
+  --surface: #16203a;
+  --accent: #4fbe95;
+  --accent-soft: #1c3129;
+
+  --line: rgb(237 239 245 / 0.14);
+  --line-strong: rgb(237 239 245 / 0.28);
+  --card-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+  --card-shadow-hover: 0 14px 28px -18px rgb(0 0 0 / 0.75);
+
+  color-scheme: dark;
+}
+
+/* 토큰을 Tailwind 유틸리티로 노출: bg-paper, text-ink-soft, border-line ... */
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --font-sans: var(--font-noto-sans-kr), 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-serif: var(--font-noto-serif-kr), 'Apple SD Gothic Neo', serif;
+
+  --radius-card: 18px;
+  --shadow-card: var(--card-shadow);
+  --shadow-card-hover: var(--card-shadow-hover);
+}
+
+/* ────────────────────────────── 기본 스타일 ────────────────────────────── */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-noto-sans-kr), 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  word-break: keep-all; /* 한글 어절 단위 줄바꿈 */
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-noto-serif-kr), 'Apple SD Gothic Neo', serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* 키보드 포커스는 어떤 배경에서도 보이도록 accent 링으로 통일 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .lift-on-hover:hover {
+    transform: none;
+  }
+}
+
+/* 카드/칩 공통 모션: 호버 시 살짝 떠오르고 테두리가 강조된다 */
+.lift-on-hover {
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.lift-on-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* 테마 토글 아이콘: 라이트일 때 달(다크로 전환), 다크일 때 해(라이트로 전환) */
+.theme-icon-sun {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .theme-icon-sun {
+    display: block;
+  }
+
+  :root:not([data-theme='light']) .theme-icon-moon {
+    display: none;
+  }
+}
+
+:root[data-theme='dark'] .theme-icon-sun {
+  display: block;
+}
+
+:root[data-theme='dark'] .theme-icon-moon {
+  display: none;
+}
