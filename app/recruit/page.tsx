@@ -64,7 +64,7 @@ export default function RecruitPage() {
           className="lift-on-hover mt-5 flex items-center justify-center gap-2 rounded-card border border-accent/45 bg-accent-soft px-4 py-3.5 font-medium text-accent shadow-card hover:shadow-card-hover"
         >
           <Icon name="mail" className="h-4.5 w-4.5" />
-          {site.contact.email}로 지원서 보내기
+          {site.contact.email}으로 지원서 보내기
         </a>
 
         <p className="mt-3 text-center text-xs leading-relaxed text-ink-soft">
